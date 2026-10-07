@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARUNIKA LIVING | Furnitur Modern & Desain Interior Elegan</title>
+  <meta name="description" content="Koleksi karya abadi yang dirancang untuk menghadirkan ketenangan, kehangatan, serta estetika modern yang berkelas di setiap sudut hunian Anda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <aside class="announcement-bar" id="announcement-bar">
+    <div class="container announcement-container">
+      <div class="announcement-left">
+        <svg class="icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+        <span>Gratis Pengiriman untuk Pesanan di Atas Rp 1.500.000</span>
+      </div>
+      <div class="announcement-right">
+        <a href="#masuk" class="top-link" id="link-masuk" onclick="showToast('Fitur login member')">Masuk</a>
+        <span class="divider">|</span>
+        <a href="#kontak" class="top-link" id="link-kontak" onclick="scrollToSection('main-footer')">Kontak</a>
+        <span class="divider">|</span>
+        <a href="#bantuan" class="top-link" id="link-bantuan" onclick="showToast('Pusat Bantuan Arunika')">Bantuan</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. MAIN HEADER NAVIGATION -->
+  <header class="main-header" id="main-header">
+    <div class="container header-container">
+      <!-- LOGO -->
+      <a href="#" class="brand-logo" id="brand-logo">
+        <span class="logo-text">ARUNIKA</span>
+        <span class="logo-subtext">LIVING</span>
+      </a>
+
+      <!-- NAVIGATION LINKS -->
+      <nav class="nav-menu" id="nav-menu">
+        <div class="mobile-menu-header">
+          <span class="mobile-menu-title">MENU</span>
+          <button class="mobile-menu-close" id="mobile-menu-close">&times;</button>
+        </div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#" class="nav-link active">Beranda</a></li>
+          <li class="nav-item"><a href="#koleksi" class="nav-link">Koleksi</a></li>
+          <li class="nav-item"><a href="#furnitur" class="nav-link">Furnitur</a></li>
+          <li class="nav-item"><a href="#jurnal" class="nav-link">Jurnal</a></li>
+          <li class="nav-item"><a href="#ruang" class="nav-link">Ruang</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <p class="mobile-menu-contact">Butuh bantuan? Hubungi kami di <strong>+62 21 8000 5500</strong></p>
+        </div>
+      </nav>
+
+      <!-- UTILITY ICONS -->
+      <div class="header-actions">
+        <button class="action-btn" id="btn-search" aria-label="Cari Produk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="action-label">Cari</span>
+        </button>
+
+        <button class="action-btn" id="btn-wishlist" aria-label="Daftar Disukai">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-label">Disukai</span>
+          <span class="badge-count wishlist-count" id="wishlist-counter">0</span>
+        </button>
+
+        <button class="action-btn" id="btn-cart" aria-label="Keranjang Belanja">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-7z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="action-label">Keranjang</span>
+          <span class="badge-count cart-count" id="cart-counter">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Buka Menu Navigasi">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <!-- SEARCH OVERLAY MODAL -->
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-modal">
+      <div class="search-header">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="search-input" placeholder="Cari sofa, kursi lounge, nakas..." autocomplete="off">
+        </div>
+        <button class="close-search-btn" id="close-search-btn">&times;</button>
+      </div>
+      <div class="search-suggestions">
+        <span class="suggestion-tag" onclick="quickSearch('Sofa')">Sofa Modular</span>
+        <span class="suggestion-tag" onclick="quickSearch('Kursi')">Kursi Lounge</span>
+        <span class="suggestion-tag" onclick="quickSearch('Nakas')">Nakas Skandinavia</span>
+        <span class="suggestion-tag" onclick="quickSearch('Meja')">Meja Kayu</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- 3. SECTION HERO (MOST LOVED FURNITURE) -->
+    <section class="hero-section" id="koleksi">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Hero Imagery -->
+          <div class="hero-image-box">
+            <img src="assets/images/hero-living-room.jpg" alt="Ruang Keluarga Elegan Arunika Living" class="hero-main-img" loading="eager">
+          </div>
+
+          <!-- Right: Hero Content -->
+          <div class="hero-content-box">
+            <span class="eyebrow-text">KOLEKSI TERBARU</span>
+            <h1 class="hero-title">
+              <span class="title-accent">FURNITUR</span>
+              <span class="title-dark">TERFAVORIT</span>
+            </h1>
+            <p class="hero-description">
+              Karya abadi yang diciptakan untuk kenyamanan hunian modern yang hangat, tenang, dan berkelas.
+            </p>
+            <div class="hero-cta-wrapper">
+              <a href="#furnitur" class="btn btn-pill-terracotta" id="hero-cta-btn">
+                <span>Jelajahi Koleksi</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECTION 2: ROW 1 (SOFT LOUNGE CHAIR + MODERN LIVING BANNER) -->
+    <section class="asymmetric-section" id="furnitur">
+      <div class="container">
+        <div class="asymmetric-row row-1-layout">
+          <!-- Left: Product Card (Soft Lounge Chair) -->
+          <div class="product-side-card" data-product-id="1">
+            <div class="side-card-thumb">
+              <img src="assets/images/chair-soft-green.jpg" alt="Soft Lounge Chair" class="side-card-img">
+              <button class="wishlist-btn" aria-label="Simpan ke Favorit" onclick="toggleWishlist(1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+            </div>
+            <div class="side-card-body">
+              <h3 class="side-card-title">Kursi Santai Velvet</h3>
+              <button class="side-card-link" onclick="openProductModal(1)">
+                <span>Lihat Detail</span>
+                <span class="link-arrow">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Wide Lifestyle Banner (MODERN LIVING) -->
+          <div class="lifestyle-feature-banner banner-modern-living">
+            <img src="assets/images/banner-modern-living.jpg" alt="Hunian Modern Arunika" class="feature-banner-img">
+            <div class="banner-overlay overlay-left-align">
+              <span class="banner-badge">SERI SIGNATURE</span>
+              <h2 class="banner-title">HUNIAN<br>MODERN</h2>
+              <p class="banner-desc">Keseimbangan estetika Skandinavia dan kehangatan material kayu walnut pilihan.</p>
+              <a href="#koleksi-grid" class="btn btn-outline-pill" onclick="scrollToSection('koleksi-grid')">
+                <span>Jelajahi Seri</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECTION 3: ROW 2 (NATURAL COMFORT BANNER + CURVE CHAIR) -->
+    <section class="asymmetric-section" id="ruang">
+      <div class="container">
+        <div class="asymmetric-row row-2-layout">
+          <!-- Left: Wide Lifestyle Banner (NATURAL COMFORT) -->
+          <div class="lifestyle-feature-banner banner-natural-comfort">
+            <img src="assets/images/banner-natural-comfort.jpg" alt="Kenyamanan Alami Arunika" class="feature-banner-img">
+            <div class="banner-overlay overlay-left-align natural-comfort-overlay">
+              <span class="banner-badge">KOLEKSI KENYAMANAN</span>
+              <h2 class="banner-title">KENYAMANAN<br>ALAMI</h2>
+              <p class="banner-desc">Sentuhan material organik berkualitas tinggi untuk pengalaman relaksasi sejati.</p>
+              <a href="#koleksi-grid" class="btn btn-pill-terracotta" onclick="scrollToSection('koleksi-grid')">
+                <span>Temukan Koleksi</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Product Card (Curve Chair) -->
+          <div class="product-side-card" data-product-id="2">
+            <div class="side-card-thumb">
+              <img src="assets/images/chair-curve.jpg" alt="Curve Chair" class="side-card-img">
+              <button class="wishlist-btn" aria-label="Simpan ke Favorit" onclick="toggleWishlist(2)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+            </div>
+            <div class="side-card-body">
+              <h3 class="side-card-title">Kursi Aksen Kurva</h3>
+              <button class="side-card-link" onclick="openProductModal(2)">
+                <span>Lihat Detail</span>
+                <span class="link-arrow">&rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SECTION 4: 3-PRODUCT GRID ROW -->
+    <section class="products-trio-section" id="koleksi-grid">
+      <div class="container">
+        <div class="products-trio-grid">
+          <!-- Item 1: Dining Chair -->
+          <div class="product-trio-card" data-product-id="3">
+            <div class="trio-thumb-wrap">
+              <img src="assets/images/chair-molded-dining.jpg" alt="Kursi Makan Minimalis" class="trio-img">
+              <button class="wishlist-btn" aria-label="Simpan ke Favorit" onclick="toggleWishlist(3)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+            </div>
+            <div class="trio-body">
+              <h4 class="trio-title">Kursi Makan Minimalis</h4>
+              <div class="trio-price">Rp 1.650.000</div>
+              <div class="trio-action-row">
+                <button class="trio-cart-btn" onclick="addToCart(3)">+ Keranjang</button>
+                <button class="trio-detail-btn" onclick="openProductModal(3)">
+                  <span>Lihat Detail</span>
+                  <span class="link-arrow">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Modern Nightstand -->
+          <div class="product-trio-card" data-product-id="4">
+            <div class="trio-thumb-wrap">
+              <img src="assets/images/table-bedside.jpg" alt="Nakas Kayu Skandinavia" class="trio-img">
+              <button class="wishlist-btn" aria-label="Simpan ke Favorit" onclick="toggleWishlist(4)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+            </div>
+            <div class="trio-body">
+              <h4 class="trio-title">Nakas Kayu Skandinavia</h4>
+              <div class="trio-price">Rp 2.450.000</div>
+              <div class="trio-action-row">
+                <button class="trio-cart-btn" onclick="addToCart(4)">+ Keranjang</button>
+                <button class="trio-detail-btn" onclick="openProductModal(4)">
+                  <span>Lihat Detail</span>
+                  <span class="link-arrow">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Industrial Metal Chair -->
+          <div class="product-trio-card" data-product-id="5">
+            <div class="trio-thumb-wrap">
+              <img src="assets/images/chair-metal-bistro.jpg" alt="Kursi Metal Bistro" class="trio-img">
+              <button class="wishlist-btn" aria-label="Simpan ke Favorit" onclick="toggleWishlist(5)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+            </div>
+            <div class="trio-body">
+              <h4 class="trio-title">Kursi Metal Bistro</h4>
+              <div class="trio-price">Rp 1.350.000</div>
+              <div class="trio-action-row">
+                <button class="trio-cart-btn" onclick="addToCart(5)">+ Keranjang</button>
+                <button class="trio-detail-btn" onclick="openProductModal(5)">
+                  <span>Lihat Detail</span>
+                  <span class="link-arrow">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. MAIN FOOTER -->
+  <footer class="main-footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Slogan & Socials -->
+        <div class="footer-col col-brand-block">
+          <a href="#" class="footer-brand">
+            <span class="brand-dark">ARUNIKA</span>
+            <span class="brand-light">LIVING</span>
+          </a>
+          <p class="footer-tagline">SENI HIDUP YANG LEBIH INDAH</p>
+          <div class="footer-social-row">
+            <a href="#instagram" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#facebook" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#pinterest" class="social-icon" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle><path d="M8 12a4 4 0 0 1 8 0"></path></svg>
+            </a>
+            <a href="#youtube" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Kunjungi Kami -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Kunjungi Kami</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#showroom">Galeri Showroom</a></li>
+            <li><a href="#lokasi">Temukan Toko</a></li>
+            <li><a href="#konsultasi">Konsultasi Desain</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Informasi -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Informasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#pengiriman">Pengiriman</a></li>
+            <li><a href="#pengembalian">Pengembalian</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#karir">Karir</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Koleksi -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Koleksi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#ruang-keluarga">Ruang Keluarga</a></li>
+            <li><a href="#kamar-tidur">Kamar Tidur</a></li>
+            <li><a href="#ruang-makan">Ruang Makan</a></li>
+            <li><a href="#penyimpanan">Penyimpanan</a></li>
+            <li><a href="#aksesori">Aksesori</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Terhubung -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Terhubung</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#komunitas">Gabung Komunitas</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#pinterest">Pinterest</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 6: Dapatkan Aplikasi & Buletin -->
+        <div class="footer-col col-app-column">
+          <h4 class="footer-heading">Dapatkan Aplikasi</h4>
+          <div class="app-badges-group">
+            <a href="#appstore" class="store-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.58-.7 1.05-1.7 1.01-2.73-1 .04-2.14.68-2.77 1.41-.56.64-.99 1.63-.92 2.62 1.11.08 2.15-.59 2.68-1.3z"/></svg>
+              <div class="store-text">
+                <span class="store-small">Tersedia di</span>
+                <span class="store-name">App Store</span>
+              </div>
+            </a>
+            <a href="#googleplay" class="store-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3.6 1.8A1.8 1.8 0 0 0 3 3.3v17.4a1.8 1.8 0 0 0 .6 1.5l.1.1 9.8-9.8v-.2L3.7 1.7zm13 9.4-2.9-2.9-9.3 9.3 12.2-6.4zm0-2.4L4.4 2.4 13.7 11.7l2.9-2.9zM20 11.1c.4.3.6.8.6 1.4 0 .5-.2 1-.6 1.3l-2.4 1.4-2.7-2.7 2.7-2.7 2.4 1.3z"/></svg>
+              <div class="store-text">
+                <span class="store-small">Dapatkan di</span>
+                <span class="store-name">Google Play</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="newsletter-wrap">
+            <h5 class="newsletter-caption">Buletin</h5>
+            <form class="newsletter-field-box" onsubmit="handleNewsletter(event)">
+              <input type="email" placeholder="Email Anda" id="newsletter-email" required>
+              <button type="submit" aria-label="Kirim Buletin">&rarr;</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER BOTTOM -->
+      <div class="footer-copyright-bar">
+        <p>&copy; 2026 Arunika Living. Hak cipta dilindungi undang-undang.</p>
+        <button class="back-top-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <span>Kembali ke Atas</span>
+          <span>&uarr;</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHOPPING CART SLIDEOUT DRAWER -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Keranjang Belanja (<span id="cart-drawer-count">0</span>)</h3>
+      <button class="cart-close-btn" id="btn-close-cart">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cart-items-container">
+      <div class="empty-cart-message">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-7z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <p style="margin-top: 12px;">Keranjang belanja Anda masih kosong</p>
+        <button class="btn btn-pill-terracotta" style="margin-top: 16px; font-size: 0.85rem;" onclick="closeCartDrawer()">Mulai Berbelanja</button>
+      </div>
+    </div>
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal-price">Rp 0</strong>
+      </div>
+      <p class="shipping-note">Termasuk PPN & Bebas Biaya Kirim Se-Jabodetabek</p>
+      <button class="btn-checkout" id="btn-checkout" onclick="checkoutOrder()">Lanjutkan ke Pembayaran</button>
+    </div>
+  </aside>
+
+  <!-- QUICK VIEW PRODUCT MODAL -->
+  <div class="product-modal-backdrop" id="product-modal-backdrop">
+    <div class="product-modal-card" id="product-modal-card">
+      <button class="modal-close-btn" id="btn-close-modal" onclick="closeProductModal()">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-img-col">
+          <img src="" alt="" id="modal-product-img">
+        </div>
+        <div class="modal-info-col">
+          <span class="modal-category" id="modal-product-cat">Koleksi Living</span>
+          <h2 class="modal-title" id="modal-product-title">Judul Produk</h2>
+          <div class="modal-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-text">4.9 (48 Ulasan)</span>
+          </div>
+          <div class="modal-price" id="modal-product-price">Rp 0</div>
+          <p class="modal-desc" id="modal-product-desc">Deskripsi furnitur yang nyaman dan elegan.</p>
+
+          <div class="modal-attributes">
+            <div class="attr-group">
+              <label>Pilihan Warna:</label>
+              <div class="color-swatches">
+                <span class="color-dot active" style="background-color: #556B2F;" title="Sage Green"></span>
+                <span class="color-dot" style="background-color: #C0713E;" title="Warm Cognac"></span>
+                <span class="color-dot" style="background-color: #E2DBD0;" title="Ivory Cream"></span>
+                <span class="color-dot" style="background-color: #1A1A1A;" title="Obsidian"></span>
+              </div>
+            </div>
+            <div class="attr-group">
+              <label>Material:</label>
+              <span class="spec-value" id="modal-product-material">Kayu Jati Solid & Kain Beludru Impor</span>
+            </div>
+            <div class="attr-group">
+              <label>Dimensi:</label>
+              <span class="spec-value" id="modal-product-dims">85 x 82 x 78 cm</span>
+            </div>
+          </div>
+
+          <div class="modal-actions-row">
+            <div class="qty-selector">
+              <button onclick="decrementQty()">-</button>
+              <span id="modal-qty">1</span>
+              <button onclick="incrementQty()">+</button>
+            </div>
+            <button class="btn btn-pill-terracotta modal-cart-btn" id="modal-add-cart-btn">
+              Tambah ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notification" id="toast-notification">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toast-message">Produk berhasil ditambahkan!</span>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
